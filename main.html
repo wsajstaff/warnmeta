@@ -1,0 +1,540 @@
+
+
+
+<!DOCTYPE html>
+
+<!--suppress JSUnresolvedReference, JSUnresolvedLibraryURL, SpellCheckingInspection -->
+<html lang="en" data-theme="dark">
+<head>
+    <title>Central Alert Repository</title>
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Stay aware with Central Alert Repository, the real-time emergency alert archive by the Global Weather &amp; EAS Society.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Central Alert Repository">
+    <meta property="og:description" content="Stay aware with Central Alert Repository, the real-time emergency alert archive by the Global Weather &amp; EAS Society.">
+    <meta property="og:url" content="https://alerts.globaleas.org/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Central Alert Repository">
+    <meta name="twitter:description" content="Stay aware with Central Alert Repository, the real-time emergency alert archive by the Global Weather &amp; EAS Society.">
+    <meta name="theme-color" content="#f98800">
+    <meta name="apple-itunes-app" content="app-id=6741344515">
+        <meta http-equiv="refresh" content="60">
+
+    <!-- Local resources -->
+    <link href="/css/built.css" rel="stylesheet" type="text/css"/>
+    <link href="/img/gwes.webp" rel="icon" type="image/webp"/>
+
+    <!-- Bootstrap icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"
+          type="text/css"/>
+
+    <!-- Sentry error tracking -->
+    <script src="https://sentry.gwes.dev/js-sdk-loader/8653ea92634ccfb9768e7953cb9bbe0b.min.js" crossorigin="anonymous" type="6cffb4e4d69cd0773babb2dc-text/javascript"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EX0E8FF86T" type="6cffb4e4d69cd0773babb2dc-text/javascript"></script>
+    <script type="6cffb4e4d69cd0773babb2dc-text/javascript">
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-EX0E8FF86T');
+    </script>
+</head>
+<body>
+<header class="sticky top-0 z-50">
+    <nav class="navbar bg-orange-500">
+        <div class="container mx-auto flex items-center justify-between px-4">
+            <div class="flex items-center space-x-2">
+                <button onclick="if (!window.__cfRLUnblockHandlers) return false; window.location.href='/'" class="flex items-center text-xl font-semibold text-black" data-cf-modified-6cffb4e4d69cd0773babb2dc-="">
+                    <img src="/img/gwes.webp" alt="Logo" class="w-8 h-8 mr-2">
+                    <span class="hidden lg:inline mr-4">Central Alert Repository</span>
+                </button>
+                <button onclick="if (!window.__cfRLUnblockHandlers) return false; window.location.href='/search'" class="btn btn-sm btn-outline-dark flex items-center" type="button" data-cf-modified-6cffb4e4d69cd0773babb2dc-="">
+                    <i class="bi bi-search"></i>
+                    <span class="hidden md:inline">Search</span>
+                </button>
+                <button onclick="if (!window.__cfRLUnblockHandlers) return false; window.location.href='https://discord.gg/gwes'" class="btn btn-sm btn-outline-dark flex items-center" type="button" data-cf-modified-6cffb4e4d69cd0773babb2dc-="">
+                    <i class="bi bi-discord"></i>
+                    <span class="hidden md:inline">Discord</span>
+                </button>
+                <button onclick="if (!window.__cfRLUnblockHandlers) return false; window.location.href='https://status.globaleas.org'" class="btn btn-sm btn-outline-dark flex items-center" type="button" data-cf-modified-6cffb4e4d69cd0773babb2dc-="">
+                    <i class="bi bi-bar-chart"></i>
+                    <span class="hidden md:inline">System Status</span>
+                </button>
+            </div>
+            <div class="flex items-center space-x-2">
+                    <button class="btn btn-sm btn-outline-dark" type="button" onclick="if (!window.__cfRLUnblockHandlers) return false; window.location.href = '/admin'" data-cf-modified-6cffb4e4d69cd0773babb2dc-="">
+                        <i class="bi bi-box-arrow-in-right mr-1"></i>
+                        <span class="hidden md:inline">Admin Sign In</span>
+                    </button>
+            </div>
+        </div>
+    </nav>
+</header>
+<main class="container mx-auto px-4 py-6 [margin-bottom:64px]">
+    
+
+<div class="announcements">
+</div>
+
+<div class="tabs tabs-sm tabs-box justify-between mb-4">
+    <a class="tab flex-1 mr-1 tab-active"
+       href="/">
+        <i class="bi bi-list sm:pr-2"></i>
+        <span class="hidden lg:inline">All Alerts</span>
+    </a>
+    <a class="tab flex-1 mx-1 "
+       href="?filter=TOR,TOA,SVR,SVA,SMW">
+        <i class="bi bi-cloud-lightning-rain sm:pr-2"></i>
+        <span class="hidden lg:inline">Convective</span>
+    </a>
+    <a class="tab flex-1 mx-1 "
+       href="?filter=FFW,FFA,FLW,FLA,CFW,CFA">
+        <i class="bi bi-droplet sm:pr-2"></i>
+        <span class="hidden lg:inline">Hydrological</span>
+    </a>
+    <a class="tab flex-1 mx-1 "
+       href="?filter=HUW,HUA,TRW,TRA,SSW,SSA">
+        <i class="bi bi-hurricane sm:pr-2"></i>
+        <span class="hidden lg:inline">Tropical</span>
+    </a>
+    <a class="tab flex-1 mx-1 "
+       href="?filter=SQW,BZW,WSW,WSA,EWW,HWW,HWA">
+        <i class="bi bi-snow sm:pr-2"></i>
+        <span class="hidden lg:inline">Winter/Wind</span>
+    </a>
+    <a class="tab flex-1 mx-1 "
+       href="?filter=CDW,CEM,CAE,LEW,LAE,SPW,TOE">
+        <i class="bi bi-shield sm:pr-2"></i>
+        <span class="hidden lg:inline">Civil</span>
+    </a>
+    <a class="tab flex-1 ml-1 "
+       href="?filter=ADR,RWT,RMT,DMO">
+        <i class="bi bi-broadcast sm:pr-2"></i>
+        <span class="hidden lg:inline">Tests</span>
+    </a>
+</div>
+
+<div class="container mx-auto p-1 bg-base-100">
+    <div class="card tabs-box rounded-lg mb-4">
+        <div class="card-header bg-red-500 text-white rounded-lg p-2">
+            <h2 class="text-lg font-bold">Currently Active Alerts</h2>
+        </div>
+        <div class="card-body p-4">
+
+<div class="card border border-gray-600 bg-base-100 p-2 flex flex-col sm:flex-row">
+    <div class="card-body p-2">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <span class="badge badge-error mr-1">FLW</span>
+                <span class="text-sm text-gray-500">
+                    sent <time class="font-semibold"
+                               title="4/11/2025 4:48:00&#x202F;PM (UTC)">20 minutes ago</time>
+                    by <span class="font-semibold">ERN/KLT </span>
+                </span>
+            </div>
+            <div class="m-1 md:m-0">
+                <span class="badge badge-error" title="4/13/2025 5:18:00 AM (UTC)">expires 2 days from now</span>
+                <a href="/alert?hash=B6FCB8E4C7A06E0D38F20765FD0B34CAEBE0BF64" target="_blank" class="badge badge-neutral ml-2">
+                    <i class="bi bi-link-45deg"></i>
+                </a>
+            </div>
+        </div>
+        <div class="mt-1">
+                <pre class="whitespace-pre-wrap">The National Weather Service has issued A FLOOD WARNING for the following counties or areas: Lee, AR; Tunica, MS; at 12:48 PM on APR 11, 2025 Effective until 1:18 AM  APR 13, 2025. Message from ERN/KLT. </pre>
+        </div>
+        <div class="mt-1">
+                    <audio controls src="https://vroom.gwes-cdn.net/B6FCB8E4C7A06E0D38F20765FD0B34CAEBE0BF64.mp3" class="w-full"></audio>
+        </div>
+        <details class="mt-1">
+            <summary class="cursor-pointer">Additional alert information</summary>
+            <div class="overflow-x-auto mt-1">
+                <table class="table w-full">
+                    <thead>
+                    <tr>
+                        <th>Originator</th>
+                        <th>FIPS Codes</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Severity</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>WXR</td>
+                        <td>005077, 028143</td>
+                        <td>4/11/2025 4:48:00&#x202F;PM (UTC)<br/>20 minutes ago</td>
+                        <td>4/13/2025 5:18:00&#x202F;AM (UTC)<br/>2 days from now</td>
+                        <td>WARNING</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+    </div>
+</div>
+
+<div class="card border border-gray-600 bg-base-100 p-2 flex flex-col sm:flex-row">
+    <div class="card-body p-2">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <span class="badge badge-neutral mr-1">DMO</span>
+                <span class="text-sm text-gray-500">
+                    sent <time class="font-semibold"
+                               title="4/11/2025 4:38:00&#x202F;PM (UTC)">30 minutes ago</time>
+                    by <span class="font-semibold">ERN/KLT </span>
+                </span>
+            </div>
+            <div class="m-1 md:m-0">
+                <span class="badge badge-error" title="4/11/2025 6:08:00 PM (UTC)">expires 59 minutes from now</span>
+                <a href="/alert?hash=1531707757972E0914F8EB82451CB020DFCC720D" target="_blank" class="badge badge-neutral ml-2">
+                    <i class="bi bi-link-45deg"></i>
+                </a>
+            </div>
+        </div>
+        <div class="mt-1">
+                <pre class="whitespace-pre-wrap">A broadcast or cable system has issued A PRACTICE/DEMO WARNING for the following counties or areas: Illinois; at 12:38 PM on APR 11, 2025 Effective until 2:08 PM. Message from ERN/KLT. </pre>
+        </div>
+        <div class="mt-1">
+                    <audio controls src="https://vroom.gwes-cdn.net/1531707757972E0914F8EB82451CB020DFCC720D.mp3" class="w-full"></audio>
+        </div>
+        <details class="mt-1">
+            <summary class="cursor-pointer">Additional alert information</summary>
+            <div class="overflow-x-auto mt-1">
+                <table class="table w-full">
+                    <thead>
+                    <tr>
+                        <th>Originator</th>
+                        <th>FIPS Codes</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Severity</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>EAS</td>
+                        <td>017000</td>
+                        <td>4/11/2025 4:38:00&#x202F;PM (UTC)<br/>30 minutes ago</td>
+                        <td>4/11/2025 6:08:00&#x202F;PM (UTC)<br/>59 minutes from now</td>
+                        <td>TEST</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+    </div>
+</div>
+
+<div class="card border border-gray-600 bg-base-100 p-2 flex flex-col sm:flex-row">
+    <div class="card-body p-2">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <span class="badge badge-secondary mr-1">CAE</span>
+                <span class="text-sm text-gray-500">
+                    sent <time class="font-semibold"
+                               title="4/10/2025 9:35:00&#x202F;PM (UTC)">19 hours ago</time>
+                    by <span class="font-semibold">HZNCBL  </span>
+                </span>
+            </div>
+            <div class="m-1 md:m-0">
+                <span class="badge badge-error" title="4/11/2025 9:35:00 PM (UTC)">expires 4 hours from now</span>
+                <a href="/alert?hash=BCCCC1923DFD11C3215541E9EB0D3D0478D52D02" target="_blank" class="badge badge-neutral ml-2">
+                    <i class="bi bi-link-45deg"></i>
+                </a>
+            </div>
+        </div>
+        <div class="mt-1">
+                <pre class="whitespace-pre-wrap">Civil Authorities have issued a Child Abduction Emergency for the following Texas counties: Erath, Comanche, Mills, Lampasas, Burnet, Williamson, Bell, Coryell, Hamilton, Bosque, Somervell, Hood, Parker, Tarrant, Johnson, Hill, McLennan, Milam, Falls, Limestone, Navarro, Ellis, Dallas, Kaufman, Henderson, Freestone, Leon, Robertson, Madison, Brazos, Anderson. Effective until April 11, 05:35 PM EDT Local AMBER Alert: Missing/Abducted Child from Temple, Texas. Missing child is Natalia Herrera, 14 year old Black female, last seen wearing a black puffy jacket, black shirt, and black shoes. Aunastasia Herrera, 15 year old Black female, last seen wearing a green hoodie, blue jean shorts, and black shoes. Call Temple Police Department with information. If seen call 9 1 1. HZNCBL</pre>
+        </div>
+        <div class="mt-1">
+                    <audio controls src="https://vroom.gwes-cdn.net/BCCCC1923DFD11C3215541E9EB0D3D0478D52D02.mp3" class="w-full"></audio>
+        </div>
+        <details class="mt-1">
+            <summary class="cursor-pointer">Additional alert information</summary>
+            <div class="overflow-x-auto mt-1">
+                <table class="table w-full">
+                    <thead>
+                    <tr>
+                        <th>Originator</th>
+                        <th>FIPS Codes</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Severity</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>CIV</td>
+                        <td>048143, 048093, 048333, 048281, 048053, 048491, 048027, 048099, 048193, 048035, 048425, 048221, 048367, 048439, 048251, 048217, 048309, 048331, 048145, 048293, 048349, 048139, 048113, 048257, 048213, 048161, 048289, 048395, 048313, 048041, 048001</td>
+                        <td>4/10/2025 9:35:00&#x202F;PM (UTC)<br/>19 hours ago</td>
+                        <td>4/11/2025 9:35:00&#x202F;PM (UTC)<br/>4 hours from now</td>
+                        <td>EMERGENCY</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+    </div>
+</div>
+
+<div class="card border border-gray-600 bg-base-100 p-2 flex flex-col sm:flex-row">
+    <div class="card-body p-2">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <span class="badge badge-secondary mr-1">CAE</span>
+                <span class="text-sm text-gray-500">
+                    sent <time class="font-semibold"
+                               title="4/10/2025 9:29:00&#x202F;PM (UTC)">19 hours ago</time>
+                    by <span class="font-semibold">KGRX    </span>
+                </span>
+            </div>
+            <div class="m-1 md:m-0">
+                <span class="badge badge-error" title="4/11/2025 9:29:00 PM (UTC)">expires 4 hours from now</span>
+                <a href="/alert?hash=063C122F41913F922EBB9D9011724ECAFB83F76C" target="_blank" class="badge badge-neutral ml-2">
+                    <i class="bi bi-link-45deg"></i>
+                </a>
+            </div>
+        </div>
+        <div class="mt-1">
+                <pre class="whitespace-pre-wrap">A civil authority has issued A CHILD ABDUCTION EMERGENCY for the following counties or areas: Burleson; Lee, TX; at 4:29 PM on APR 10, 2025 Effective until 4:29 PM  APR 11, 2025. Message from IPAWSCAP. Local AMBER Alert: Missing/Abducted Child from Temple, Texas. Missing child is Natalia Herrera, 14 year old Black female, last seen wearing a black puffy jacket, black shirt, and black shoes. Aunastasia Herrera, 15 year old Black female, last seen wearing a green hoodie, blue jean shorts, and black shoes. Call Temple Police Department with information. If seen call 9 1 1. </pre>
+        </div>
+        <div class="mt-1">
+                    <audio controls src="https://vroom.gwes-cdn.net/063C122F41913F922EBB9D9011724ECAFB83F76C.mp3" class="w-full"></audio>
+        </div>
+        <details class="mt-1">
+            <summary class="cursor-pointer">Additional alert information</summary>
+            <div class="overflow-x-auto mt-1">
+                <table class="table w-full">
+                    <thead>
+                    <tr>
+                        <th>Originator</th>
+                        <th>FIPS Codes</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Severity</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>CIV</td>
+                        <td>048051, 048287</td>
+                        <td>4/10/2025 9:29:00&#x202F;PM (UTC)<br/>19 hours ago</td>
+                        <td>4/11/2025 9:29:00&#x202F;PM (UTC)<br/>4 hours from now</td>
+                        <td>EMERGENCY</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+    </div>
+</div>
+
+<div class="card border border-gray-600 bg-base-100 p-2 flex flex-col sm:flex-row">
+    <div class="card-body p-2">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <span class="badge badge-error mr-1">FLW</span>
+                <span class="text-sm text-gray-500">
+                    sent <time class="font-semibold"
+                               title="4/10/2025 6:57:00&#x202F;PM (UTC)">22 hours ago</time>
+                    by <span class="font-semibold">ERN/KLT </span>
+                </span>
+            </div>
+            <div class="m-1 md:m-0">
+                <span class="badge badge-error" title="4/11/2025 9:27:00 PM (UTC)">expires 4 hours from now</span>
+                <a href="/alert?hash=EA88E2EB3984596C4C7FA7F5BEE441F45F92F332" target="_blank" class="badge badge-neutral ml-2">
+                    <i class="bi bi-link-45deg"></i>
+                </a>
+            </div>
+        </div>
+        <div class="mt-1">
+                <pre class="whitespace-pre-wrap">The National Weather Service has issued A FLOOD WARNING for the following counties or areas: Clay, AR; at 2:57 PM on APR 10, 2025 Effective until 5:27 PM  APR 11, 2025. Message from ERN/KLT. </pre>
+        </div>
+        <div class="mt-1">
+                    <audio controls src="https://vroom.gwes-cdn.net/EA88E2EB3984596C4C7FA7F5BEE441F45F92F332.mp3" class="w-full"></audio>
+        </div>
+        <details class="mt-1">
+            <summary class="cursor-pointer">Additional alert information</summary>
+            <div class="overflow-x-auto mt-1">
+                <table class="table w-full">
+                    <thead>
+                    <tr>
+                        <th>Originator</th>
+                        <th>FIPS Codes</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Severity</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>WXR</td>
+                        <td>005021</td>
+                        <td>4/10/2025 6:57:00&#x202F;PM (UTC)<br/>22 hours ago</td>
+                        <td>4/11/2025 9:27:00&#x202F;PM (UTC)<br/>4 hours from now</td>
+                        <td>WARNING</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+    </div>
+</div>
+
+<div class="card border border-gray-600 bg-base-100 p-2 flex flex-col sm:flex-row">
+    <div class="card-body p-2">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <span class="badge badge-error mr-1">FLW</span>
+                <span class="text-sm text-gray-500">
+                    sent <time class="font-semibold"
+                               title="4/10/2025 6:54:00&#x202F;PM (UTC)">22 hours ago</time>
+                    by <span class="font-semibold">ERN/KLT </span>
+                </span>
+            </div>
+            <div class="m-1 md:m-0">
+                <span class="badge badge-error" title="4/11/2025 9:24:00 PM (UTC)">expires 4 hours from now</span>
+                <a href="/alert?hash=B5E2A5B032BB3766C4673C1B27B5A5C9A6991739" target="_blank" class="badge badge-neutral ml-2">
+                    <i class="bi bi-link-45deg"></i>
+                </a>
+            </div>
+        </div>
+        <div class="mt-1">
+                <pre class="whitespace-pre-wrap">The National Weather Service has issued A FLOOD WARNING for the following counties or areas: Poinsett, AR; at 2:54 PM on APR 10, 2025 Effective until 5:24 PM  APR 11, 2025. Message from ERN/KLT. </pre>
+        </div>
+        <div class="mt-1">
+                    <audio controls src="https://vroom.gwes-cdn.net/B5E2A5B032BB3766C4673C1B27B5A5C9A6991739.mp3" class="w-full"></audio>
+        </div>
+        <details class="mt-1">
+            <summary class="cursor-pointer">Additional alert information</summary>
+            <div class="overflow-x-auto mt-1">
+                <table class="table w-full">
+                    <thead>
+                    <tr>
+                        <th>Originator</th>
+                        <th>FIPS Codes</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Severity</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>WXR</td>
+                        <td>005111</td>
+                        <td>4/10/2025 6:54:00&#x202F;PM (UTC)<br/>22 hours ago</td>
+                        <td>4/11/2025 9:24:00&#x202F;PM (UTC)<br/>4 hours from now</td>
+                        <td>WARNING</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+    </div>
+</div>
+        </div>
+    </div>
+    <div class="card tabs-box rounded-lg">
+        <div class="card-header bg-gray-500 text-white rounded-lg p-2">
+            <h2 class="text-lg font-bold">Recently Expired Alerts</h2>
+        </div>
+        <div class="card-body p-4">
+
+<div class="card border border-gray-600 bg-base-100 p-2 flex flex-col sm:flex-row">
+    <div class="card-body p-2">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <span class="badge badge-neutral mr-1">RWT</span>
+                <span class="text-sm text-gray-500">
+                    sent <time class="font-semibold"
+                               title="4/11/2025 4:00:00&#x202F;PM (UTC)">an hour ago</time>
+                    by <span class="font-semibold">ERN/KLT </span>
+                </span>
+            </div>
+            <div class="m-1 md:m-0">
+                <span class="badge badge-neutral" title="4/11/2025 5:00:00 PM (UTC)">expired 8 minutes ago</span>
+                <a href="/alert?hash=62E0C36B610862BEB584E8AEDD30908593607F6D" target="_blank" class="badge badge-neutral ml-2">
+                    <i class="bi bi-link-45deg"></i>
+                </a>
+            </div>
+        </div>
+        <div class="mt-1">
+                <pre class="whitespace-pre-wrap">A broadcast or cable system has issued A REQUIRED WEEKLY TEST for the following counties or areas: Broward; Charlotte; Collier; DeSoto; Glades; Indian River; Lee; Martin; Miami-Dade; Monroe; Okeechobee; Palm Beach; St. Lucie, FL; at 12:00 PM on APR 11, 2025 Effective until 1:00 PM. Message from ERN/KLT. </pre>
+        </div>
+        <div class="mt-1">
+                    <audio controls src="https://vroom.gwes-cdn.net/62E0C36B610862BEB584E8AEDD30908593607F6D.mp3" class="w-full"></audio>
+        </div>
+        <details class="mt-1">
+            <summary class="cursor-pointer">Additional alert information</summary>
+            <div class="overflow-x-auto mt-1">
+                <table class="table w-full">
+                    <thead>
+                    <tr>
+                        <th>Originator</th>
+                        <th>FIPS Codes</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Severity</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>EAS</td>
+                        <td>012011, 012015, 012021, 012027, 012043, 012061, 012071, 012085, 012086, 012087, 012093, 012099, 012111</td>
+                        <td>4/11/2025 4:00:00&#x202F;PM (UTC)<br/>an hour ago</td>
+                        <td>4/11/2025 5:00:00&#x202F;PM (UTC)<br/>8 minutes ago</td>
+                        <td>TEST</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+</main>
+<footer class="footer sm:footer-horizontal bg-neutral text-neutral-content items-center fixed w-full bottom-0 p-4 z-50">
+    <div class="flex justify-between items-center w-full">
+        <div class="text-sm text-gray-600 flex-1">
+            <span class="hidden lg:inline">
+                Copyright &copy; 2015-2025 Global Weather & EAS Society. All rights reserved. Contact
+                <a href="/cdn-cgi/l/email-protection#ea878b8e8f8683848faa8d8685888b868f8b99c485988d" class="underline"><span class="__cf_email__" data-cfemail="f79a9693929b9e9992b7909b9895969b929684d9988590">[email&#160;protected]</span></a> for
+                questions or concerns.
+            </span>
+            <span class="inline lg:hidden">
+                <button class="btn btn-sm" onclick="if (!window.__cfRLUnblockHandlers) return false; legalModal.showModal()" data-cf-modified-6cffb4e4d69cd0773babb2dc-="">Legal</button>
+                <dialog id="legalModal" class="modal">
+                    <div class="modal-box text-base-content">
+                        <form method="dialog">
+                            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                        </form>
+                        <h3 class="text-lg font-bold">Legal Info</h3>
+                        <p class="py-4">
+                            Copyright &copy; 2015-2025 Global Weather & EAS Society. All rights reserved.
+                            Contact <a href="/cdn-cgi/l/email-protection#3e535f5a5b5257505b7e5952515c5f525b5f4d10514c59" class="underline"><span class="__cf_email__" data-cfemail="1e737f7a7b7277707b5e7972717c7f727b7f6d30716c79">[email&#160;protected]</span></a>
+                            for questions or concerns.
+                        </p>
+                    </div>
+                </dialog>
+            </span>
+        </div>
+        <a href="https://weather.gov/wrn" target="_blank" class="flex-shrink-0">
+            <img src="/img/wrn.png" alt="Weather Ready Nation ambassador" class="max-w-min h-8 mx-2">
+        </a>
+    </div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="6cffb4e4d69cd0773babb2dc-|49" defer></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"92ec16be7ff7802a","version":"2025.3.0","r":1,"token":"c60064187e7e4d80b6d2e51ca2a05d91","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+</body>
+</html>
